@@ -49,7 +49,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="font-sans antialiased">
         <ThemeProvider>
           {children}
           <Toaster />

@@ -17,6 +17,10 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "strictNullChecks": true,
-    "types": ["node", "vite/client"]
+    "types": ["node", "vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["./src/*"]
+    }
   }
 }

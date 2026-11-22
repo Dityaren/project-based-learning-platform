@@ -1,0 +1,3 @@
+inputs:
+  nixpkgs-playwright:
+    url: github:NixOS/nixpkgs/nixos-unstable

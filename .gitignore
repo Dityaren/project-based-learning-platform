@@ -31,3 +31,6 @@ coverage
 .vitest/
 
 .tanstack
+
+.devenv/
+devenv.lock

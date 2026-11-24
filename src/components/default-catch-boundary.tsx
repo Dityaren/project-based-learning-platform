@@ -28,11 +28,11 @@ export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {
             router.invalidate();
           }}
         >
-          Try Again
+          Coba Lagi
         </Button>
         {isRoot ? (
           <Button render={<Link to="/" />} variant="secondary" nativeButton={false}>
-            Home
+            Beranda
           </Button>
         ) : (
           <Button
@@ -48,7 +48,7 @@ export function DefaultCatchBoundary({ error }: Readonly<ErrorComponentProps>) {
             variant="secondary"
             nativeButton={false}
           >
-            Go Back
+            Kembali
           </Button>
         )}
       </div>

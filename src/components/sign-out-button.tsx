@@ -26,7 +26,7 @@ export function SignOutButton() {
       variant="destructive"
       size="lg"
     >
-      Sign out
+      Keluar
     </Button>
   );
 }

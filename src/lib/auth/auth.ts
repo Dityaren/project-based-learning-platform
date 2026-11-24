@@ -2,6 +2,7 @@ import "@tanstack/react-start/server-only";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { APIError } from "better-auth/api";
 import { betterAuth } from "better-auth/minimal";
+import { username } from "better-auth/plugins";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { ENV } from "varlock/env";
 
@@ -27,8 +28,9 @@ export const auth = betterAuth({
     schema,
   }),
 
-  // https://better-auth.com/docs/integrations/tanstack#usage-tips
-  plugins: [tanstackStartCookies()],
+  // username() lets accounts sign in with NIM + password. The NIM is stored as `username`.
+  // https://better-auth.com/docs/plugins/username
+  plugins: [username(), tanstackStartCookies()],
 
   // https://better-auth.com/docs/concepts/session-management#session-caching
   session: {
@@ -38,21 +40,19 @@ export const auth = betterAuth({
     },
   },
 
-  // https://better-auth.com/docs/concepts/oauth
-  socialProviders: {
-    github: {
-      clientId: ENV.GITHUB_CLIENT_ID!,
-      clientSecret: ENV.GITHUB_CLIENT_SECRET!,
-    },
-    google: {
-      clientId: ENV.GOOGLE_CLIENT_ID!,
-      clientSecret: ENV.GOOGLE_CLIENT_SECRET!,
+  // https://better-auth.com/docs/concepts/database#extending-core-schema
+  user: {
+    additionalFields: {
+      // input: false stops clients from choosing their own role.
+      role: { type: "string", required: false, defaultValue: "student", input: false },
     },
   },
 
   // https://better-auth.com/docs/authentication/email-password
   emailAndPassword: {
     enabled: true,
+    // TODO: public signup stays open until class-token registration replaces it.
+    // Then set disableSignUp: true and create accounts through a server function.
   },
 
   advanced: {

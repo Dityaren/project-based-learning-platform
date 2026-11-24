@@ -17,26 +17,26 @@ export function ThemeToggle() {
       <DropdownMenuTrigger render={<Button variant="outline" size="icon" />}>
         <SunIcon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
         <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-        <span className="sr-only">Toggle theme</span>
+        <span className="sr-only">Ganti tema</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuCheckboxItem
           checked={theme === "light"}
           onCheckedChange={(v) => v && setTheme("light")}
         >
-          Light
+          Terang
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={theme === "dark"}
           onCheckedChange={(v) => v && setTheme("dark")}
         >
-          Dark
+          Gelap
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={theme === "system"}
           onCheckedChange={(v) => v && setTheme("system")}
         >
-          System
+          Sistem
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
